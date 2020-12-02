@@ -1,7 +1,3 @@
-//
-// Created by l on 01.12.2020.
-//
-
 #ifndef MONIUM_FILE_READER_H
 #define MONIUM_FILE_READER_H
 
@@ -17,6 +13,8 @@ public:
 
 private:
     std::string fileName;
+
+    static void compress(std::string &line);
 };
 
 

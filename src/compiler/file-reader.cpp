@@ -1,11 +1,8 @@
-//
-// Created by l on 01.12.2020.
-//
-
 #include <iostream>
 #include <fstream>
+#include <vector>
+#include <string>
 #include "file-reader.h"
-
 
 void FileReader::read() {
     try {
@@ -22,6 +19,7 @@ void FileReader::read() {
 
         std::string line;
         while (std::getline(readStream, line)) {
+            FileReader::compress(line);
             std::cout << line;
         }
 
@@ -29,4 +27,8 @@ void FileReader::read() {
     } catch (const std::exception &e) {
         std::cout << e.what();
     }
+}
+
+void FileReader::compress(std::string &line) {
+    std::erase(line, ' ');
 }
