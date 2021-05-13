@@ -4,12 +4,12 @@
 #include <string>
 #include "file-reader.h"
 
-void FileReader::read() {
+void FileReader::read(const std::string& fileName) {
     try {
         std::ifstream readStream;
 
         // open the file stream
-        readStream.open(this->fileName);
+        readStream.open(fileName);
 
         // check if opening a file failed
         if (readStream.fail()) {
@@ -19,7 +19,7 @@ void FileReader::read() {
 
         std::string line;
         while (std::getline(readStream, line)) {
-            FileReader::compress(line);
+            FileReader::trim(line);
             std::cout << line;
         }
 
@@ -29,6 +29,6 @@ void FileReader::read() {
     }
 }
 
-void FileReader::compress(std::string &line) {
+void FileReader::trim(std::string &line) {
     std::erase(line, ' ');
 }

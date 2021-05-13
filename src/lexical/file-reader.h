@@ -7,14 +7,14 @@
 struct FileReader {
 
 public:
-    explicit FileReader(std::string fileName) : fileName(std::move(fileName)) {};
+    FileReader() = default;
 
-    void read();
+    static void read(const std::string& fileName);
 
 private:
     std::string fileName;
 
-    static void compress(std::string &line);
+    static void trim(std::string &line);
 };
 
 
